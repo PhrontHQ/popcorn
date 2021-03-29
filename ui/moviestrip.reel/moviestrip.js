@@ -119,7 +119,9 @@ exports.Moviestrip = Component.specialize({
 
             this._detailsHidden = true;
             this._flowHidden = true;
-            this._categoryContentController.select(this._categoryContentController.content[0]);
+            if(this._categoryContentController.content) {
+                this._categoryContentController.select(this._categoryContentController.content[0]);
+            }
 
             // wait .5s until the fade in/out effect is completed
             this._flowHiddenCallbackTimeout = setTimeout( function() {

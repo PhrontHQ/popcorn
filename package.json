@@ -20,8 +20,8 @@
   },
   "manifest": true,
   "dependencies": {
-    "digit": "github:marchant/digit#montage-19",
-    "montage": "github:marchant/montage#montage-19",
+    "digit": "montagejs/digit#master",
+    "montage": "montagejs/montage#master",
     "query-params": "0.0.1",
     "url": "^0.11.0"
   },

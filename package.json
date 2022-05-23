@@ -26,7 +26,7 @@
     "url": "^0.11.0"
   },
   "devDependencies": {
-    "http-server": "^0.10.0",
+    "http-server": "^14.1.0",
     "jshint": "^2.9.5",
     "minit": "^0.5.7",
     "montage-testing": "~0.5.1",

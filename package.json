@@ -20,12 +20,13 @@
   },
   "manifest": true,
   "dependencies": {
-    "digit": "montagejs/digit#master",
-    "montage": "montagejs/montage#master",
+    "digit": "github:marchant/digit#montage-19",
+    "montage": "github:marchant/montage#montage-19",
     "query-params": "0.0.1",
     "url": "^0.11.0"
   },
   "devDependencies": {
+    "http-server": "^0.10.0",
     "jshint": "^2.9.5",
     "minit": "^0.5.7",
     "montage-testing": "~0.5.1",

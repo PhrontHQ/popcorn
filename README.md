@@ -82,20 +82,20 @@ The contents of the Popcorn sample application are structured into the following
 ### The User Interface
 
 The Popcorn user interface consists of multiple components. These components are stored in the ui directory
-and identified with a .reel extension. Conceptually, the application breaks down into a container that holds
+and identified with a .mod extension. Conceptually, the application breaks down into a container that holds
 a navigation area and a content area.
 
-* The container is presented by the Main component (main.reel), which accesses the Rotten Tomatoes web service
+* The container is presented by the Main component (main.mod), which accesses the Rotten Tomatoes web service
     and uses the other components in the ui directory for the presentation.
-* The navigation is presented by the Categories component (categories.reel) and its Button child component 
-    (category-button.reel).
-* The content area is represented by the Moviestrip component (moviestrip.reel) — including its Image (image.reel)
-    and Overlay (overlay.reel) child components — the Details component (details.reel), and the Player component
-    (player.reel), which loads the YouTube player when users click the Trailer button in a movie's details view.
+* The navigation is presented by the Categories component (categories.mod) and its Button child component 
+    (category-button.mod).
+* The content area is represented by the Moviestrip component (moviestrip.mod) — including its Image (image.mod)
+    and Overlay (overlay.mod) child components — the Details component (details.mod), and the Player component
+    (player.mod), which loads the YouTube player when users click the Trailer button in a movie's details view.
 
 Note that MontageJS applications are modular, that is, they are assembled out of encapsulated, resuable
 components; regardless of where a component is used, the same HTML, CSS, and JavaScript will control how
-that particular component is structured, looks, and behaves. When you expand a component's .reel directory,
+that particular component is structured, looks, and behaves. When you expand a component's .mod directory,
 you will find inside:
 
 * An HTML file (AKA template in MontageJS speak), which controls the component's structure.

@@ -12,53 +12,47 @@ var Montage = require("montage/core/core").Montage,
  * @class JsonpTransport
  * @extends Montage
  */
-exports.JsonpTransport = Montage.specialize(/** @lends JsonpTransport# */ {
-    constructor: {
-        value: function JsonpTransport() {
-        }
-    },
+exports.JsonpTransport = class JsonpTransport extends Montage /** @lends JsonpTransport# */ {
 
-    makeRequest: {
-        value: function (url, servicePrefix, callbackParameter) {
-            var deferredResponse = Promise.defer(),
-                self = this,
-                parsedUrl = Url.parse(url),
-                params = Params.decode(parsedUrl.query),
-                callbackNamePrefix = servicePrefix ? servicePrefix + "ServiceCallback" : "serviceCallback",
-                callbackMethodName = callbackNamePrefix + Uuid.generate().replace(/-/g, "_"),
-                scriptElement = document.createElement("script"),
-                requestUrl;
+    makeRequest(url, servicePrefix, callbackParameter) {
+        var self = this,
+            parsedUrl = Url.parse(url),
+            params = Params.decode(parsedUrl.query),
+            callbackNamePrefix = servicePrefix ? servicePrefix + "ServiceCallback" : "serviceCallback",
+            callbackMethodName = callbackNamePrefix + Uuid.generate().replace(/-/g, "_"),
+            scriptElement = document.createElement("script"),
+            responsePromise = new Promise(function(resolve, reject) {
+                window[callbackMethodName] = function(data) {
+                    self._handleResponse(data, resolve, reject);
+                    document.head.removeChild(scriptElement);
+                    delete window[callbackMethodName];
+                };
+    
+            }),
+            requestUrl;
 
-            window[callbackMethodName] = function(data) {
-                self._handleResponse(data, deferredResponse);
-                document.head.removeChild(scriptElement);
-                delete window[callbackMethodName];
-            };
 
-            params[callbackParameter? callbackParameter : "callback"] = callbackMethodName;
+        params[callbackParameter? callbackParameter : "callback"] = callbackMethodName;
 
-            requestUrl = url.replace(parsedUrl.query, "") + Params.encode(params);
-            scriptElement.src = requestUrl;
+        requestUrl = url.replace(parsedUrl.query, "") + Params.encode(params);
+        scriptElement.src = requestUrl;
 
-            document.head.appendChild(scriptElement);
+        document.head.appendChild(scriptElement);
 
-            return deferredResponse.promise;
-        }
-    },
+        return responsePromise;
+    }
 
-    _handleResponse: {
-        value: function (data, deferred) {
-//            console.log("response", data);
-            if (!data) {
-                deferred.reject(new Error("Unknown API Error"));
-            } else if (data.error) {
-                deferred.reject(new Error(data.error));
-            } else {
-                deferred.resolve(data);
-            }
+    _handleResponse(data, resolve, reject) {
+//      console.log("response", data);
+        if (!data) {
+            reject(new Error("Unknown API Error"));
+        } else if (data.error) {
+            reject(new Error(data.error));
+        } else {
+            resolve(data);
         }
     }
 
-});
+};
 
 exports.shared = new exports.JsonpTransport();

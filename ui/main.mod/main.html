@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "values": {
+                "element": {"#": "owner"},
+                "mainContent": {"#": "mainContent"}
+            }
+        },
+        "categories": {
+            "prototype": "ui/categories.mod",
+            "values": {
+                "element": {"#": "categories"},
+                "categories": {"<-": "@owner.moviesService.categories"}
+            }
+        },
+        "details": {
+            "prototype": "ui/details.mod",
+            "values": {
+                "element": {"#": "details"},
+                "movie": {"<-": "@moviestrip.categoryContentController.selection.one()"}
+            }
+        },
+        "moviestrip": {
+            "prototype": "ui/moviestrip.mod",
+            "values": {
+                "element": {"#": "moviestrip"},
+                "movieDetails": {"@": "details"},
+                "categoryContentController": {"<-": "@owner.moviesService.categories.selection.one().contentController"}
+            }
+        },
+        "player": {
+            "prototype": "ui/player.mod",
+            "values": {
+                "element": {"#": "player"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="Main">
+        <div data-montage-id="categories"></div>
+        <div data-montage-id="mainContent" class="Main-content">
+            <img class="logo" src="../../assets/image/logo.png" alt="Montage Popcorn">
+            <div data-montage-id="moviestrip" class="Main-strip"></div>
+            <div data-montage-id="details" class="Main-details"></div>
+        </div>
+        <div data-montage-id="player" class="popup"></div>
+    </div>
+</body>
+</html>

@@ -1,12 +1,12 @@
 /**
  * @module ./jsonp-transport
- * @requires montage/core/core
+ * @requires mod/core/core
  */
-var Montage = require("montage/core/core").Montage,
+var Montage = require("mod/core/core").Montage,
     Params = require('query-params'),
     Url = require("url"),
-    Uuid = require("montage/core/uuid"),
-    Promise = require("montage/core/promise").Promise;
+    Uuid = require("mod/core/uuid"),
+    Promise = require("mod/core/promise").Promise;
 
 /**
  * @class JsonpTransport

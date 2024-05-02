@@ -1,15 +1,15 @@
 /**
  * @module ./tmdb-service
- * @requires montage/core/core
+ * @requires mod/core/core
  */
-var Montage = require("montage/core/core").Montage;
-var RangeController = require("montage/core/range-controller").RangeController;
-var Promise = require("montage/core/promise").Promise;
+var Montage = require("mod/core/core").Montage;
+var RangeController = require("mod/core/range-controller").RangeController;
+var Promise = require("mod/core/promise").Promise;
 
 var CategoryController = require("./category-controller").CategoryController;
 var sharedTransport = require("./jsonp-transport").shared;
 
-var defaultLocalizer = require("montage/core/localizer").defaultLocalizer;
+var defaultLocalizer = require("mod/core/localizer").defaultLocalizer;
 
 var API_KEY = "dbf71473cf25bbd06939baef47b626eb";
 var API_URL = "https://api.themoviedb.org/3/";

@@ -1,5 +1,5 @@
 
-var Component = require("montage/ui/component").Component;
+var Component = require("mod/ui/component").Component;
 var sharedTmdbService = require("core/tmdb-service").shared;
 
 
@@ -8,13 +8,13 @@ exports.Details = class Details extends Component { /** @lends Details# */
         const p = this.prototype;
 
         p.isVisible = null; 
-        p._movie = {
+        p._data = {
             vote_average: 5.5
         };
         p._isDetailsExpanded = false;
     }
 
-    set movie(val) {
+    set data(val) {
 
         var self = this;
 
@@ -37,14 +37,14 @@ exports.Details = class Details extends Component { /** @lends Details# */
 
                     val.mpaaRating = rating;
                 }).then(function () {
-                    self.dispatchBeforeOwnPropertyChange("movie", self._movie);
-                    self._movie = val;
+                    self.dispatchBeforeOwnPropertyChange("data", self._data);
+                    self._data = val;
                     self.isVisible = true;
-                    self.dispatchOwnPropertyChange("movie", self._movie);
+                    self.dispatchOwnPropertyChange("data", self._data);
                 });
         
         } else {
-            self._movie = val;
+            self._data = val;
             this.isVisible = true;
         }
 
@@ -52,14 +52,14 @@ exports.Details = class Details extends Component { /** @lends Details# */
 
     }
 
-    get movie() {
-        return this._movie;
+    get data() {
+        return this._data;
     }
 
     draw() {
-        if (this.movie) {
+        if (this.data) {
             //jshint -W106
-            var popularity = this.movie.popularity;
+            var popularity = this.data.popularity;
             //jshint +W106
             if (this._isDetailsExpanded) {
                 this._element.classList.add("expanded");
@@ -70,11 +70,11 @@ exports.Details = class Details extends Component { /** @lends Details# */
     }
 
     handleRentButtonAction(event) {
-        window.open( this.movie.links.alternate );
+        window.open( this.data.links.alternate );
     }
 
     handleTrailerButtonAction(event) {
-        this.dispatchEventNamed("openTrailer", true, true, {trailers: this.movie.trailers});
+        this.dispatchEventNamed("openTrailer", true, true, {trailers: this.data.trailers});
     }
 
     handleExpandButtonAction(event) {

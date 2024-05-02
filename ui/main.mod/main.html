@@ -22,7 +22,7 @@
             "prototype": "ui/details.mod",
             "values": {
                 "element": {"#": "details"},
-                "movie": {"<-": "@moviestrip.categoryContentController.selection.one()"}
+                "data": {"<-": "@moviestrip.categoryContentController.selection.one()"}
             }
         },
         "moviestrip": {
@@ -43,7 +43,7 @@
     </script>
 </head>
 <body>
-    <div data-montage-id="owner" class="Main">
+    <div data-mod-id="owner" class="Main">
         <div data-montage-id="categories"></div>
         <div data-montage-id="mainContent" class="Main-content">
             <img class="logo" src="../../assets/image/logo.png" alt="Montage Popcorn">

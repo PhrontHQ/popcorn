@@ -1,5 +1,5 @@
 
-var Component = require("montage/ui/component").Component;
+var Component = require("mod/ui/component").Component;
 
 var TRAILER_URL = "https://www.youtube.com/embed/%s?autoplay=1&enablejsapi=1",
     PLACE_HOLDER = "%s";

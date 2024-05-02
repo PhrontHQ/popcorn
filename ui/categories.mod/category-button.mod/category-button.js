@@ -1,8 +1,8 @@
 /**
  * @module ui/category-button.mod
- * @requires montage/ui/component
+ * @requires mod/ui/component
  */
-var AbstractRadioButton = require("montage/ui/base/abstract-radio-button").AbstractRadioButton;
+var AbstractRadioButton = require("mod/ui/base/abstract-radio-button").AbstractRadioButton;
 
 /**
  * @class CategoryButton

@@ -1,7 +1,7 @@
 
-var Component = require("montage/ui/component").Component,
+var Component = require("mod/ui/component").Component,
     sharedMoviesService = require("core/tmdb-service").shared,
-    defaultLocalizer = require("montage/core/localizer").defaultLocalizer,
+    defaultLocalizer = require("mod/core/localizer").defaultLocalizer,
     CacheManager = require('core/cache-manager.js').CacheManager;
 
 //TODO use details in toggle buttons

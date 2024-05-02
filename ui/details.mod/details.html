@@ -12,31 +12,31 @@
             }
         },
         "audienceScore": {
-            "prototype": "montage/ui/text.mod",
+            "prototype": "mod/ui/text.mod",
             "values": {
                 "element": {"#": "audienceScore"},
-                "value": {"<-": "@owner.movie.vote_average"}
+                "value": {"<-": "@owner.data.vote_average"}
             }
         },
         "criticsScore": {
-            "prototype": "montage/ui/text.mod",
+            "prototype": "mod/ui/text.mod",
             "values": {
                 "element": {"#": "criticsScore"},
-                "value": {"<-": "@owner.movie.popularity.round(0)"}
+                "value": {"<-": "@owner.data.popularity.round(0)"}
             }
         },
         "dates": {
-            "prototype": "montage/ui/text.mod",
+            "prototype": "mod/ui/text.mod",
             "values": {
                 "element": {"#": "dates"},
-                "value": {"<-": "@owner.movie.release_date"}
+                "value": {"<-": "@owner.data.release_date"}
             }
         },
         "description": {
-            "prototype": "montage/ui/text.mod",
+            "prototype": "mod/ui/text.mod",
             "values": {
                 "element": {"#": "description"},
-                "value": {"<-": "@owner.movie.overview"}
+                "value": {"<-": "@owner.data.overview"}
             }
         },
         "expandButton": {
@@ -52,17 +52,17 @@
             ]
         },
         "maturity": {
-            "prototype": "montage/ui/text.mod",
+            "prototype": "mod/ui/text.mod",
             "values": {
                 "element": {"#": "maturity"},
-                "value": {"<-": "@owner.movie.mpaaRating"}
+                "value": {"<-": "@owner.data.mpaaRating"}
             }
         },
         "runtime": {
-            "prototype": "montage/ui/text.mod",
+            "prototype": "mod/ui/text.mod",
             "values": {
                 "element": {"#": "runtime"},
-                "value": {"<-": "(@owner.movie.runtime/60).floor() + 'h ' + @owner.movie.runtime%60 + 'min'"}
+                "value": {"<-": "(@owner.data.runtime/60).floor() + 'h ' + @owner.data.runtime%60 + 'min'"}
             }
         },
         "scroller": {
@@ -73,10 +73,10 @@
             }
         },
         "title": {
-            "prototype": "montage/ui/text.mod",
+            "prototype": "mod/ui/text.mod",
             "values": {
                 "element": {"#": "title"},
-                "value": {"<-": "@owner.movie.title"}
+                "value": {"<-": "@owner.data.title"}
             }
         },
         "trailerButton": {

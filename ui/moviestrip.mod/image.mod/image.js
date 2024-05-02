@@ -1,5 +1,5 @@
-var Component = require("montage/ui/component").Component;
-var Promise = require('montage/core/promise').Promise;
+var Component = require("mod/ui/component").Component;
+var Promise = require('mod/core/promise').Promise;
 var ImageElementClass = Image;
 exports.Image = class Image extends Component { /** @lends Image# */
     static {

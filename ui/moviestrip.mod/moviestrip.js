@@ -1,6 +1,6 @@
 
-var Component   = require("montage/ui/component").Component,
-    KeyComposer = require("montage/composer/key-composer").KeyComposer;
+var Component   = require("mod/ui/component").Component,
+    KeyComposer = require("mod/composer/key-composer").KeyComposer;
 
 exports.Moviestrip = class Moviestrip extends Component { /** @lends Moviestrip# */
     static {

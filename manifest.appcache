@@ -3,8 +3,8 @@ CACHE MANIFEST
 #hash f2b6e333ssa
 favicon.ico
 /
-/node_modules/montage/montage.js
-/node_modules/montage/node_modules/bluebird/js/browser/bluebird.min.js 
+/node_modules/mod/montage.js
+/node_modules/mod/node_modules/bluebird/js/browser/bluebird.min.js 
 /assets/style/style.css
 
 NETWORK:

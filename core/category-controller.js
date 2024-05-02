@@ -1,5 +1,5 @@
-var Montage = require("montage").Montage;
-var RangeController = require("montage/core/range-controller").RangeController;
+var Montage = require("mod").Montage;
+var RangeController = require("mod/core/range-controller").RangeController;
 
 exports.CategoryController = class CategoryController extends Montage {
 

@@ -1,0 +1,36 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "remove-node_modules",
+        "type": "shell",
+        "command": "",
+        "options":{
+            "cwd": "${workspaceFolder}/",
+            "shell": {
+              "executable": "rm",
+              "args": ["-rf", "node_modules"]
+            }
+    
+        }
+      },
+      {
+        "label": "remove-package-lock.json",
+        "type": "shell",
+        "command": "rm",
+        "args": ["package-lock.json"],
+        "options":{
+            "cwd": "${workspaceFolder}/"
+        }
+      },
+      {
+        "label": "pre-npm-install",
+        "dependsOrder": "sequence",
+        "dependsOn": [
+            "remove-node_modules",
+            "remove-package-lock.json"
+        ]
+        }
+
+    ]
+  }

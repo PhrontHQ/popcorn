@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="player.css">
+    <script src="https://www.youtube.com/player_api"></script>
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "values": {
+                "element": {"#": "owner"},
+                "player": {"#": "iframe"}
+            }
+        },
+        "closeButton": {
+            "prototype": "digit/ui/button.mod",
+            "values": {
+                "element": {"#": "closeButton"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+        "overlay": {
+            "prototype": "mod/ui/overlay.mod",
+            "values": {
+                "element": {"#": "overlay"},
+                "delegate": {"@": "owner"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner">
+        <div data-mod-id="overlay" class="Moviepopup">
+            <button data-mod-id="closeButton" class="button button-close">
+                ✕
+            </button>
+            <iframe data-mod-id="iframe" class="mod-youtube-player" type="text/html" width="100%" height="100%" frameborder="0" allowfullscreen=""></iframe>
+        </div>
+    </div>
+</body>
+</html>

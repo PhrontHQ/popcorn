@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="categories.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "values": {
+                "element": {"#": "owner"},
+                "selected": {"<-": "@radioButtonController.value"}
+            }
+        },
+        "button": {
+            "prototype": "./category-button.mod",
+            "values": {
+                "element": {"#": "button"},
+                "radioButtonController": {"@": "radioButtonController"},
+                "classList.has(@repetition:iteration.object.key)": {"<-": "true"},
+                "label": {"<-": "@repetition:iteration.object.title"},
+                "value": {"<-": "@repetition:iteration.object"}
+            }
+        },
+        "radioButtonController": {
+            "prototype": "mod/core/radio-button-controller",
+            "values": {
+                "contentController": {"<-": "@owner.categories"}
+            }
+        },
+        "repetition": {
+            "prototype": "mod/ui/repetition.mod",
+            "values": {
+                "element": {"#": "repetition"},
+                "contentController": {"<-": "@owner.categories"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Categories">
+        <span data-mod-id="repetition" class="Categories-strip">
+            <button data-mod-id="button" class="Categories-button"></button>
+        </span>
+    </div>
+</body>
+</html>

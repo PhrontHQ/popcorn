@@ -1,0 +1,40 @@
+{
+  "blueprint_component_reference": {
+    "prototype": "mod/core/meta/blueprint-reference",
+    "values": {
+      "valueReference": {
+        "blueprintName": "Component",
+        "blueprintModule": {
+          "%": "mod/ui/component.meta"
+        }
+      }
+    }
+  },
+  "blueprint_unnamed_categoryContentController": {
+    "prototype": "mod/core/meta/property-blueprint",
+    "values": {
+      "name": "categoryContentController",
+      "blueprint": {"@": "root"},
+      "valueType": "object"
+    }
+  },
+  "root": {
+    "prototype": "mod/core/meta/module-blueprint",
+    "values": {
+      "name": null,
+      "parent": {"@": "blueprint_component_reference"},
+      "propertyBlueprints": [
+        {"@": "blueprint_unnamed_categoryContentController"}
+      ],
+      "propertyBlueprintGroups": {
+        "Moviestrip": [
+          {"@": "blueprint_unnamed_categoryContentController"}
+        ]
+      },
+      "module": {
+        "%": "ui/moviestrip.mod"
+      },
+      "exportName": "Moviestrip"
+    }
+  }
+}

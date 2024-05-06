@@ -1,0 +1,27 @@
+{
+  "blueprint_component_reference": {
+    "prototype": "mod/core/meta/blueprint-reference",
+    "values": {
+      "valueReference": {
+        "blueprintName": "Component",
+        "blueprintModule": {
+          "%": "mod/ui/component.meta"
+        }
+      }
+    }
+  },
+  "root": {
+    "prototype": "mod/core/meta/module-blueprint",
+    "values": {
+      "name": null,
+      "parent": {"@": "blueprint_component_reference"},
+      "propertyBlueprintGroups": {
+        "Categories": []
+      },
+      "module": {
+        "%": "ui/categories.mod"
+      },
+      "exportName": "Categories"
+    }
+  }
+}

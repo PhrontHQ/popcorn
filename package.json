@@ -20,16 +20,18 @@
   },
   "manifest": true,
   "dependencies": {
-    "digit": "montagejs/digit#master",
-    "montage": "montagejs/montage#master",
+    "digit": "github:PhrontHQ/digit#main",
+    "mod": "github:PhrontHQ/mod#main",
     "query-params": "0.0.1",
-    "url": "^0.11.0"
+    "url": "0.11.0"
   },
   "devDependencies": {
+    "eslint": "^8.57.0",
+    "http-server": "^14.1.0",
     "jshint": "^2.9.5",
     "minit": "^0.5.7",
     "montage-testing": "~0.5.1",
-    "mop": "montagejs/mop#master"
+    "mop": "PhrontHQ/mop#master"
   },
   "scripts": {
     "lint": "jshint .",
@@ -44,6 +46,6 @@
     "builds"
   ],
   "bundle": [
-    "ui/main.reel"
+    "ui/main.mod"
   ]
 }

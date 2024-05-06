@@ -1,0 +1,39 @@
+{
+  "blueprint_abstractradiobutton_reference": {
+    "prototype": "mod/core/meta/blueprint-reference",
+    "values": {
+      "valueReference": {
+        "blueprintName": "AbstractRadioButton",
+        "blueprintModule": {
+          "%": "mod/ui/base/abstract-radio-button.meta"
+        }
+      }
+    }
+  },
+  "blueprint_unnamed_label": {
+    "prototype": "mod/core/meta/property-blueprint",
+    "values": {
+      "name": "label",
+      "blueprint": {"@": "root"}
+    }
+  },
+  "root": {
+    "prototype": "mod/core/meta/module-blueprint",
+    "values": {
+      "name": null,
+      "parent": {"@": "blueprint_abstractradiobutton_reference"},
+      "propertyBlueprints": [
+        {"@": "blueprint_unnamed_label"}
+      ],
+      "propertyBlueprintGroups": {
+        "CategoryButton": [
+          {"@": "blueprint_unnamed_label"}
+        ]
+      },
+      "module": {
+        "%": "ui/categories.mod/category-button.mod"
+      },
+      "exportName": "CategoryButton"
+    }
+  }
+}

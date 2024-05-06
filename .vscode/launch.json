@@ -7,7 +7,7 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Install",
+            "name": "npm install Popcorn",
             "runtimeVersion": "20", // If i need to run node 4.8.7
             "runtimeExecutable": "npm",
             "runtimeArgs": [

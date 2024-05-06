@@ -7,6 +7,19 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "Install",
+            "runtimeVersion": "20", // If i need to run node 4.8.7
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "install"
+            ],
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "Launch http server",
             "runtimeArgs": [
                 "${workspaceFolder}/node_modules/http-server/bin/http-server",

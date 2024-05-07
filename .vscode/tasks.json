@@ -2,10 +2,29 @@
     "version": "2.0.0",
     "tasks": [
       {
+        "label": "Launch http server",
+        "type": "shell",
+        "isBackground": true,
+        "command": "",
+        "presentation": { "reveal": "silent" },
+        "options": {
+          "cwd": "${workspaceFolder}/",
+          "shell": {
+            "executable": "${workspaceFolder}/node_modules/http-server/bin/http-server",
+            "args": ["--silent", "-p", "7272"]
+          }
+        }
+      },
+      {
+          "label": "stop server",
+          "command": "echo ${input:terminate}",
+          "type": "shell"
+      },
+      {
         "label": "remove-node_modules",
         "type": "shell",
         "command": "",
-        "options":{
+        "options": {
             "cwd": "${workspaceFolder}/",
             "shell": {
               "executable": "rm",
@@ -24,13 +43,28 @@
         }
       },
       {
-        "label": "pre-npm-install",
+        "label": "Clear npm install",
         "dependsOrder": "sequence",
         "dependsOn": [
             "remove-node_modules",
             "remove-package-lock.json"
         ]
-        }
-
+      },
+      {
+        "label": "npm install",
+        "type": "npm",
+        "script": "install",
+      },
+  
+      {
+        "label": "Launch App",
+        "dependsOrder": "sequence",
+        "dependsOn": [
+            "pre-npm-install",
+            "remove-package-lock.json",
+            "npm install",
+            "Launch http server"
+        ]
+      }
     ]
   }

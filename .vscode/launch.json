@@ -7,10 +7,10 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "npm install Popcorn",
+            "name": "1. npm install App",
             "runtimeVersion": "20", // If i need to run node 4.8.7
             "runtimeExecutable": "npm",
-            "preLaunchTask": "pre-npm-install",
+            "preLaunchTask": "Clear npm install",
             "runtimeArgs": [
                 "install"
             ],
@@ -21,10 +21,13 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch http server",
+            "name": "2. Launch App local http server",
             "runtimeArgs": [
                 "${workspaceFolder}/node_modules/http-server/bin/http-server",
                 "--silent",
+                "--gzip",
+                "-c", /* disable caching with -1 value */
+                "-1",
                 "-p",
                 "7272"
             ],
@@ -33,6 +36,18 @@
             "skipFiles": [
                 "<node_internals>/**"
             ]
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "3. Open App in Chrome",
+            "url": "http://localhost:7272",
+            "webRoot": "${workspaceFolder}",
+            "runtimeExecutable": "stable",
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
         }
     ]
+
 }

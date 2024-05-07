@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "1. npm install App",
-            "runtimeVersion": "20", // If i need to run node 4.8.7
+            "runtimeVersion": "20",
             "runtimeExecutable": "npm",
             "preLaunchTask": "Clear npm install",
             "runtimeArgs": [
@@ -21,6 +21,7 @@
         {
             "type": "node",
             "request": "launch",
+            "runtimeVersion": "20",
             "name": "2. Launch App local http server",
             "runtimeArgs": [
                 "${workspaceFolder}/node_modules/http-server/bin/http-server",
